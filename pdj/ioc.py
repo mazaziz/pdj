@@ -82,6 +82,8 @@ class Container:
         self.cache[service] = value
 
     def get(self, service: str):
+        if service[0] != "/":
+            service = "/{}".format(service)
         if service in self.cache:
             return self.cache[service]
         if service not in self.schema:

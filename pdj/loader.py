@@ -22,7 +22,7 @@ def load_schema(path: str) -> dict:
     import glob
     schema = {}
     for jpath in glob.iglob("{}/**/*.json".format(path), recursive=True):
-        schema[jpath[1+len(path):-5]] = load_json(jpath)
+        schema[jpath[len(path):-5]] = load_json(jpath)
     return schema
 
 def load_params(obj) -> pdj.params.ParameterStoreInterface:
